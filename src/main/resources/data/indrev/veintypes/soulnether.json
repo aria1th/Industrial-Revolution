@@ -16,6 +16,16 @@
           "infiniteWeight": 256
         },
         {
+          "id": "the_extractinator:silt",
+          "weight": 64,
+          "infiniteWeight": 256
+        },
+        {
+          "id": "the_extractinator:slush",
+          "weight": 64,
+          "infiniteWeight": 256
+        },
+        {
           "id": "minecraft:soul_soil",
           "weight": 64,
           "infiniteWeight": 256

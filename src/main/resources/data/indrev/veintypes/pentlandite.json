@@ -8,12 +8,12 @@
         {
           "id": "modern_industrialization:nickel_ore",
           "weight": 40,
-          "infiniteWeight": 40
+          "infiniteWeight": 25
         },
 		{
           "id": "minecraft:iron_ore",
           "weight": 40,
-          "infiniteWeight": 40
+          "infiniteWeight": 25
         },
         {
           "id": "minecraft:stone",
@@ -23,6 +23,16 @@
         {
           "id": "minecraft:dirt",
           "weight": 10,
+          "infiniteWeight": 30
+        },
+        {
+          "id": "the_extractinator:silt",
+          "weight": 4,
+          "infiniteWeight": 40
+        },
+        {
+          "id": "the_extractinator:slush",
+          "weight": 4,
           "infiniteWeight": 40
         },
         {

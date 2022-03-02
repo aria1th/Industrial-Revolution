@@ -28,7 +28,7 @@
         {
           "id": "minecraft:end_stone",
           "weight": 10,
-          "infiniteWeight": 40
+          "infiniteWeight": 120
         },
         {
           "id": "minecraft:obsidian",
