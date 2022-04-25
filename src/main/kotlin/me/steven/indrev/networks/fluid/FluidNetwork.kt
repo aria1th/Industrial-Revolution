@@ -22,6 +22,7 @@ import net.minecraft.util.math.Direction
 import java.util.*
 import kotlin.collections.component1
 import kotlin.collections.component2
+import kotlin.random.Random
 
 class FluidNetwork(
     world: ServerWorld,
@@ -46,6 +47,9 @@ class FluidNetwork(
     private var ticks = 0
 
     override fun tick(world: ServerWorld) {
+        if(ticks == 0L){
+            ticks = Random.nextInt(20).toLong();
+        }
         ticks++
         if (ticks % 20 != 0) return
         val state = Type.FLUID.getNetworkState(world) as FluidNetworkState
@@ -142,3 +146,4 @@ class FluidNetwork(
         super.appendPipe(block, blockPos)
     }
 }
+
