@@ -52,7 +52,7 @@ object MiningRigInfoTooltipCallback : ItemTooltipCallback {
                 else -> return
             }
 
-            val modifierName = TranslatableText(modifier.translationKey)
+            val modifierName = translatable(modifier.translationKey)
             if (remainingLevels <= 0)
                 lines.add(index, LiteralText("Cannot increase ").append(modifierName).append(" level anymore").formatted(
                     Formatting.RED))

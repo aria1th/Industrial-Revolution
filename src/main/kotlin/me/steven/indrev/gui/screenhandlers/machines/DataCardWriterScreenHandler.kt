@@ -29,7 +29,7 @@ class DataCardWriterScreenHandler(syncId: Int, playerInventory: PlayerInventory,
         ctx
     ) {
     init {
-        val startButton = WButton(LiteralText("Write"))
+        val startButton = WButton(literal("Write"))
         val root = object : WGridPanel() {
             override fun tick() {
                 super.tick()
