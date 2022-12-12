@@ -38,7 +38,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import team.reborn.energy.api.EnergyStorage;
 
 import java.util.List;
 import java.util.Map;
@@ -93,7 +92,7 @@ public abstract class MixinServerPlayerEntity extends PlayerEntity implements IR
 
     @Inject(method = "worldChanged", at = @At("TAIL"))
     private void indrev_syncOnDimChange(ServerWorld origin, CallbackInfo ci) {
-        sync();
+        indrev_sync();
         AccessorextensionsKt.getFluidNetworkState(origin).onDimChange(this);
         AccessorextensionsKt.getItemNetworkState(origin).onDimChange(this);
     }
@@ -202,12 +201,12 @@ public abstract class MixinServerPlayerEntity extends PlayerEntity implements IR
     }
 
     @Override
-    public boolean shouldSync() {
+    public boolean indrev_shouldSync() {
         return !oldAppliedModules.equals(getAppliedModules()) || lastShield != getShieldDurability();
     }
 
     @Override
-    public void sync() {
+    public void indrev_sync() {
         lastShield = getShieldDurability();
         oldAppliedModules.clear();
         oldAppliedModules.putAll(getAppliedModules());
