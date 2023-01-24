@@ -22,6 +22,7 @@ import net.minecraft.util.ItemScatterer
 import net.minecraft.util.math.BlockPos
 import net.minecraft.util.math.Box
 import net.minecraft.world.chunk.Chunk
+import team.reborn.energy.api.base.SimpleBatteryItem
 
 class ChopperBlockEntity(tier: Tier, pos: BlockPos, state: BlockState) : AOEMachineBlockEntity<BasicMachineConfig>(tier, MachineRegistry.CHOPPER_REGISTRY, pos, state) {
     
@@ -118,6 +119,7 @@ class ChopperBlockEntity(tier: Tier, pos: BlockPos, state: BlockState) : AOEMach
     ): Boolean {
         fun damageTool(amount: Int): Boolean {
             return when {
+                toolStack.item is SimpleBatteryItem -> (toolStack.item as SimpleBatteryItem).tryUseEnergy(toolStack, amount.toLong())
                 energyOf(toolStack) != null -> energyOf(toolStack)!!.use(amount.toLong())
                 toolStack.isEmpty -> false
                 toolStack.isDamageable -> {
@@ -169,7 +171,7 @@ class ChopperBlockEntity(tier: Tier, pos: BlockPos, state: BlockState) : AOEMach
                 world?.syncWorldEvent(2005, pos, 0)
                 itemStack.decrement(1)
             }
-            block is AirBlock
+            (block is AirBlock || block.defaultState.material.isReplaceable)
                     && item is BlockItem
                     && (itemStack.isIn(ItemTags.SAPLINGS) || item.block is MushroomPlantBlock || item.block is BambooBlock || item.block is FungusBlock)
                     && item.block.defaultState.canPlaceAt(world, pos)
