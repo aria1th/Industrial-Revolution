@@ -182,29 +182,10 @@ jar {
 // configure the maven publication
 publishing {
     publications {
-        mavenJava(MavenPublication) {
-            // add all the jars that should be included when publishing to maven
-            artifact(remapJar) {
-                builtBy remapJar
-            }
-            artifact(sourcesJar) {
-                builtBy remapSourcesJar
-            }
-        }
     }
 
     // select the repositories you want to publish to
     repositories {
-        maven {
-            url "https://maven.cafeteria.dev/releases"
-            credentials {
-                username = project.property("mcdUsername")
-                password = project.property("mcdPassword")
-            }
-            authentication {
-                basic(BasicAuthentication)
-            }
-        }
     }
 }
 

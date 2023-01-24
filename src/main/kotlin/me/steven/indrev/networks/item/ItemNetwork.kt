@@ -47,8 +47,8 @@ class ItemNetwork(
     private var ticks = 0
 
     override fun tick(world: ServerWorld) {
-        if(ticks == 0L){
-            ticks = Random.nextInt(20).toLong()
+        if(ticks == 0){
+            ticks = Random.nextInt(20)
         }
         ticks++
         if (ticks % 20 != 0) return
